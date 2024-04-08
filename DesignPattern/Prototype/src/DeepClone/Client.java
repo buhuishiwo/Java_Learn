@@ -11,5 +11,8 @@ public class Client {
         //对比哈希值的不同，可知克隆成功
         System.out.println(p.name+p.deepCloneableTarget.hashCode());
         System.out.println(p2.name+p2.deepCloneableTarget.hashCode());
+
+        DeepProtoType p3 = (DeepProtoType) p.deepClone();
+        System.out.println(p3.name+p3.deepCloneableTarget.hashCode());
     }
 }
