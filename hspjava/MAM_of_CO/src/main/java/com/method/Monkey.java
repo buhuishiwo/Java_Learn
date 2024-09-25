@@ -1,3 +1,5 @@
+package com.method;
+
 public class Monkey {
     public static void main(String[] args) {
         Eat eat = new Eat();

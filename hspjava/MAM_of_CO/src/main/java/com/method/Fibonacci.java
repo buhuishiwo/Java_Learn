@@ -1,3 +1,5 @@
+package com.method;
+
 public class Fibonacci {
     public static void main(String[] args) {
         Fi fi = new Fi();

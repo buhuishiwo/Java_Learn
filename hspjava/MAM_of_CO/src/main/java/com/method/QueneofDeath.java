@@ -1,3 +1,5 @@
+package com.method;
+
 public class QueneofDeath {
     public static void main(String[] args) {
         int[] queens = new int[8];

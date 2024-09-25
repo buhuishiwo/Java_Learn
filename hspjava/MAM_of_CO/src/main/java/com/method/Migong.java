@@ -1,3 +1,5 @@
+package com.method;
+
 public class Migong  {
     public static void main(String[] args) {
         int[][] map = new int[8][7];

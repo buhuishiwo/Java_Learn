@@ -1,3 +1,5 @@
+package com.method;
+
 public class Method {
     public static void main(String[] args) {
         int [][] map = {{0,0,0},{1,1,1,},{2,2,2}};
