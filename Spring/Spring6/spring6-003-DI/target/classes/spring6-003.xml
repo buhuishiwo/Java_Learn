@@ -11,4 +11,17 @@
 <!--        指定构造方法的第二个参数，下标是 1-->
         <constructor-arg index="1" ref="vipDaoBean"/>
     </bean>
+
+    <bean id="csBean2" class="com.haishili.spring6.service.CustomerService">
+<!--        使用 name 标签指定构造参数-->
+        <constructor-arg name="userDao" ref="userDaoBean"/>
+        <constructor-arg name="vipDao" ref="vipDaoBean"/>
+    </bean>
+
+    <bean id="csBean3" class="com.haishili.spring6.service.CustomerService">
+<!--        也可以不指定参数，让 Spring 自己识别-->
+<!--        Spring 通过类型来判断把 ref 注入给哪个参数-->
+        <constructor-arg ref="vipDaoBean"/>
+        <constructor-arg ref="userDaoBean"/>
+    </bean>
 </beans>

@@ -1,6 +1,7 @@
 package com.haishili.spring6.test;
 
 import com.haishili.spring6.service.CustomerService;
+import com.haishili.spring6.service.OrderService;
 import com.haishili.spring6.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -20,5 +21,17 @@ public class SpringDITest {
         CustomerService csBean = applicationContext.getBean("csBean", CustomerService.class);
         csBean.save();
 
+    }
+    @Test
+    public void testconstructDI2() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring6-003-set.xml");
+        OrderService orderService = applicationContext.getBean("orderServiceBean", OrderService.class);
+        orderService.saveOrder();
+    }
+    @Test
+    public void testconstructDI3() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring6-003-set.xml");
+        OrderService orderService = applicationContext.getBean("orderService", OrderService.class);
+        orderService.saveOrder();
     }
 }
