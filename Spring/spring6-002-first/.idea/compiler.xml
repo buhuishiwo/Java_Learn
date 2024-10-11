@@ -6,12 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring6-004-AOP" />
+        <module name="spring6-002-first" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="spring6-002-first" target="21" />
-      <module name="spring6-003-DI" target="21" />
-    </bytecodeTargetLevel>
   </component>
 </project>
