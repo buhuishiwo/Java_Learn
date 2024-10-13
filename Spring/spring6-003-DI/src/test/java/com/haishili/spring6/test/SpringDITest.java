@@ -1,5 +1,7 @@
 package com.haishili.spring6.test;
 
+import com.haishili.spring6.bean.Person;
+import com.haishili.spring6.bean.SetArrayDI;
 import com.haishili.spring6.service.CustomerService;
 import com.haishili.spring6.service.OrderService;
 import com.haishili.spring6.service.UserService;
@@ -24,14 +26,27 @@ public class SpringDITest {
     }
     @Test
     public void testconstructDI2() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring6-003-set.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring6-004-set.xml");
         OrderService orderService = applicationContext.getBean("orderServiceBean", OrderService.class);
         orderService.saveOrder();
     }
     @Test
     public void testconstructDI3() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring6-003-set.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring6-004-set.xml");
         OrderService orderService = applicationContext.getBean("orderService", OrderService.class);
         orderService.saveOrder();
+    }
+    @Test
+    public void testsetArrayDI() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring6-005-array.xml");
+        SetArrayDI setArrayDI = applicationContext.getBean("setArrayDI", SetArrayDI.class);
+        System.out.println(setArrayDI.toString());
+
+    }
+    @Test
+    public void testsetJiheDI() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring6-006.xml");
+        Person personBean = applicationContext.getBean("personBean", Person.class);
+        System.out.println(personBean.toString());
     }
 }

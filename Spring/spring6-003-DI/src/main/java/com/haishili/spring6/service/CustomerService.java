@@ -7,6 +7,7 @@ public class CustomerService {
     private UserDao userDao;
     private VipDao vipDao;
 
+    //构造注入
     public CustomerService(UserDao userDao, VipDao vipDao) {
         this.userDao = userDao;
         this.vipDao = vipDao;

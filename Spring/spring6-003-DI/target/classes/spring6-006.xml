@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="w1" class="com.haishili.spring6.bean.Woman">
+        <property name="name" value="夏冰"/>
+    </bean>
+    <bean id="w2" class="com.haishili.spring6.bean.Woman">
+        <property name="name" value="智子"/>
+    </bean>
+    <bean id="personBean" class="com.haishili.spring6.bean.Person">
+        <property name="names">
+<!--            使用 list 标签-->
+            <list>
+                <value>张三</value>
+                <value>李四</value>
+            </list>
+        </property>
+        <property name="addrs">
+<!--            使用 set 标签-->
+            <set>
+                <value>浙江温州</value>
+                <value>贵州贵阳</value>
+            </set>
+        </property>
+        <property name="womanList">
+            <list>
+                <ref bean="w2"/>
+                <ref bean="w1"/>
+            </list>
+        </property>
+    </bean>
+</beans>

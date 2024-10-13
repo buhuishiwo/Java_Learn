@@ -9,6 +9,7 @@
         <module name="spring6-003-DI" />
         <module name="spring6-002-first" />
         <module name="spring6-004-AOP" />
+        <module name="spring6-005-aop-realapp" />
       </profile>
     </annotationProcessing>
   </component>

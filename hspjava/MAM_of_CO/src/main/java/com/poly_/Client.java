@@ -11,5 +11,9 @@ public class Client {
         cart.addProduct(phone);
         System.out.println(cart.calculateTotalPrice());
         cart.showCartDetails();
+        //向下转型
+        PolyDetail polyDetail = new Cat();
+        Cat cat = (Cat) polyDetail;
+        cat.catSay();
     }
 }

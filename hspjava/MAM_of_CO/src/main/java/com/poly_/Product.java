@@ -16,4 +16,7 @@ abstract class Product {
     public int getPrice() {
         return price;
     }
+    public void say() {
+        System.out.println("手机说话了");
+    }
 }
