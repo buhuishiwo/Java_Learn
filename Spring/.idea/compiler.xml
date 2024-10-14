@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring6-003-DI" />
         <module name="review-annoation" />
+        <module name="spring6-006-IoC-annoation" />
         <module name="spring6-002-first" />
         <module name="spring6-004-AOP" />
         <module name="spring6-005-aop-realapp" />
