@@ -2,6 +2,8 @@ package com.haisihli.spring6;
 
 import com.haishili.spring6.biz.Spring6Config2;
 import com.haishili.spring6.biz.UserService;
+import com.haishili.spring6.homework.Spring6Config3;
+import com.haishili.spring6.homework.StudentService;
 import com.haishili.spring6.service.AccountService;
 import com.haishili.spring6.service.OrderService;
 import com.haishili.spring6.service.Spring6Config;
@@ -27,5 +29,15 @@ public class test {
         userService.deleteUser();
         userService.updateUser();
         userService.seachUser();
+    }
+
+    @Test
+    public void homeworkTest() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Spring6Config3.class);
+        StudentService studentService = context.getBean("studentService", StudentService.class);
+        studentService.saveStudent();
+        studentService.deleteStudent();
+        studentService.updateStudent();
+        studentService.getStudent();
     }
 }
