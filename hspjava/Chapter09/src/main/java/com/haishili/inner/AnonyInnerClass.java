@@ -12,6 +12,7 @@ public class AnonyInnerClass {
 class Person {
     private String name;
     public void method() {
+        //实际上是 Person$1 implements IA {}
         IA tiger = new IA() {
             @Override
             public void cry() {
