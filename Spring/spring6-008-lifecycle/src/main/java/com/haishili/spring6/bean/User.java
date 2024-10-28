@@ -1,6 +1,20 @@
 package com.haishili.spring6.bean;
 
 //Bean 生命周期的五步法
+//第一步：实例化Bean
+//第二步：Bean属性赋值
+//第三步：初始化Bean
+//第四步：使用Bean
+//第五步：销毁Bean
+
+//Bean生命周期的七步法
+//第一步：实例化Bean
+//第二步：Bean属性赋值
+//Bean后处理器 before
+//第三步：初始化Bean
+//Bean 后处理器 after
+//第四步：使用Bean
+//第五步：销毁Bean
 public class User {
     private String name;
 
