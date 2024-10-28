@@ -12,6 +12,8 @@
         <option value="$PROJECT_DIR$/spring6-005-aop-realapp/pom.xml" />
         <option value="$PROJECT_DIR$/review-annoation/pom.xml" />
         <option value="$PROJECT_DIR$/spring6-006-IoC-annoation/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-007-bean-instantiation/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-008-lifecycle/pom.xml" />
       </list>
     </option>
   </component>

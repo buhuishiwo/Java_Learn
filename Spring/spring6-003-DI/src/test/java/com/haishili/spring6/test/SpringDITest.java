@@ -49,4 +49,11 @@ public class SpringDITest {
         Person personBean = applicationContext.getBean("personBean", Person.class);
         System.out.println(personBean.toString());
     }
+
+    @Test
+    public void testconstructDI4() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring6-007.xml");
+        com.haishili.spring6.test.UserService userService = applicationContext.getBean("userService", com.haishili.spring6.test.UserService.class);
+        userService.addUser();
+    }
 }

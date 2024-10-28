@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="gunFactory" class="GunFactory"/>
+    <bean id="gunBean" factory-bean="gunFactory" factory-method="getGun"/>
+    <bean id="birth" class="DateFactoryBean">
+        <property name="strDate" value="2002-11-09"/>
+    </bean>
+
+<!--    通过工厂 Bean 实例化-->
+<!--    这个工厂 Bean 已经实现了 FactoryBean 的接口，所以不需要再手动指定factory-bean和factory-method-->
+    <bean id="personBean" class="PersonFactory">
+        <property name="birth" ref="birth"/>
+    </bean>
+
+
+</beans>
