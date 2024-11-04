@@ -8,7 +8,7 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 public class LogBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("执行 Bean 后处理器的 before 方法");
+        System.out.println("4.执行 Bean 后处理器的 before 方法");
         return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
     }
 
@@ -16,7 +16,7 @@ public class LogBeanPostProcessor implements BeanPostProcessor {
     //一个是 Bean 对象，一个是 Bean 名称
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("执行 Bean 后处理器的 after 方法");
+        System.out.println("7.执行 Bean 后处理器的 after 方法");
         return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
     }
 }
