@@ -8,10 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="review-annoation" />
         <module name="spring6-003-DI" />
+        <module name="myspring-test" />
         <module name="spring6-007-bean-instantiation" />
         <module name="spring6-002-first" />
+        <module name="myspring" />
         <module name="spring6-005-aop-realapp" />
         <module name="spring6-008-lifecycle" />
+        <module name="review-reflect" />
         <module name="spring6-006-IoC-annoation" />
         <module name="spring6-009-circular-dependency" />
         <module name="spring6-004-AOP" />
