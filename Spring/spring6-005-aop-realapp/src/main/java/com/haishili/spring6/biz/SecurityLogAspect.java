@@ -16,7 +16,7 @@ public class SecurityLogAspect {
     @Pointcut("execution(* com.haishili.spring6.biz..*(..))")
     public void pointcut() {}
     @Before("pointcut()")
-    public void beforeAdvice(JoinPoint joinPoint) throws Throwable {
+    public void beforeAdvice(JoinPoint joinPoint){
         String nowDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         System.out.println(nowDate);
         String className = joinPoint.getTarget().getClass().getName();

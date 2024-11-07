@@ -1,5 +1,6 @@
 package com.haishili.spring6.bean2;
 
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -7,6 +8,13 @@ import org.springframework.stereotype.Service;
 public class UserBean {
     private String name;
     private int age;
+
+    @Resource(name="userDao")
+    private UserDao userDao;
+
+    public void save() {
+        userDao.insert();
+    }
 
     public String getName() {
         return name;

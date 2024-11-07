@@ -2,6 +2,8 @@ package com.haisihli.spring6;
 
 import com.haishili.spring6.biz.Spring6Config2;
 import com.haishili.spring6.biz.UserService;
+import com.haishili.spring6.exercise.AOPExerciseConfiguration;
+import com.haishili.spring6.exercise.UserExercise;
 import com.haishili.spring6.homework.Spring6Config3;
 import com.haishili.spring6.homework.StudentService;
 import com.haishili.spring6.service.AccountService;
@@ -39,5 +41,14 @@ public class test {
         studentService.deleteStudent();
         studentService.updateStudent();
         studentService.getStudent();
+    }
+    @Test
+    public void homeworkTest2() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AOPExerciseConfiguration.class);
+        UserExercise userExercise = context.getBean("userExercise", UserExercise.class);
+        userExercise.addUser();
+        userExercise.delUser();
+        userExercise.updateUser();
+        userExercise.SerUser();
     }
 }

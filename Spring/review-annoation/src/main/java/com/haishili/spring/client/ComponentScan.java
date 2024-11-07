@@ -31,12 +31,13 @@ public class ComponentScan {
                 String className = packageName+"."+f.getName().split("\\.")[0];
                 //通过反射机制解析注解
                 Class<?> aClass = Class.forName(className);
+                //如果类中有 Component 注解，则创建对象
                 if (aClass.isAnnotationPresent(Component.class)) {
                     Component component = aClass.getAnnotation(Component.class);
                     String id = component.value();
                     //创建对象
-//                    Objects obj= aClass.newInstance();
-//                    beanMap.put(id,obj);
+                    Objects obj= (Objects) aClass.newInstance();
+                    beanMap.put(id,obj);
                 }
             } catch (Exception e) {
 

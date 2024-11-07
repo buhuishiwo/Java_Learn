@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserDao {
+public class UserDao implements VipDao{
     @Autowired
     private UserBean userBean;
     //使用 @Value 注解给 userName 赋值
@@ -25,5 +25,10 @@ public class UserDao {
                 ", userName='" + userName + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public void insert() {
+        System.out.println("用户信息保存");
     }
 }
