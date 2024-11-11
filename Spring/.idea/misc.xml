@@ -18,6 +18,10 @@
         <option value="$PROJECT_DIR$/review-reflect/pom.xml" />
         <option value="$PROJECT_DIR$/myspring/pom.xml" />
         <option value="$PROJECT_DIR$/myspring-test/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot01/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6smalltest/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-010-tx-bank/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-010-jdbc/pom.xml" />
       </list>
     </option>
   </component>
