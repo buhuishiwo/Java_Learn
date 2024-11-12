@@ -1,4 +1,4 @@
-package com.haishili.wrapper;
+package com.haishili.stringbuffer;
 
 public class StringBuffer01 {
     public static void main(String[] args) {

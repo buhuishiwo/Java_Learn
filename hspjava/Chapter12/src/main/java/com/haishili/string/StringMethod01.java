@@ -1,4 +1,4 @@
-package com.haishili.wrapper;
+package com.haishili.string;
 
 public class StringMethod01 {
     public static void main(String[] args) {

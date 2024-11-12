@@ -1,4 +1,4 @@
-package com.haishili.wrapper;
+package com.haishili.stringbuffer;
 
 import java.util.Scanner;
 
