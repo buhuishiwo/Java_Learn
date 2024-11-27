@@ -12,4 +12,12 @@
         <servlet-name>aservlet</servlet-name>
         <url-pattern>/a</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>userservlet</servlet-name>
+        <servlet-class>com.haishili.javaweb.servlet.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>userservlet</servlet-name>
+        <url-pattern>/servlet02/user</url-pattern>
+    </servlet-mapping>
 </web-app>
