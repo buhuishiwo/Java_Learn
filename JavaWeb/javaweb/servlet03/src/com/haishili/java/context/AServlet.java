@@ -24,7 +24,11 @@ public class AServlet extends GenericServlet {
 
         //获取 context path（获取应用上下文的根）
         String contextPath = application.getContextPath();
+        //获取指定文件的绝对路径
         String realPath = application.getRealPath("/index.html");
         out.println(contextPath+" "+realPath);
+
+        //log
+        application.log("记录了一条日志");
     }
 }
