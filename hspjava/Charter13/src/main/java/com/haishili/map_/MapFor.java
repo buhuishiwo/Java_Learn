@@ -1,9 +1,6 @@
 package com.haishili.map_;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @SuppressWarnings({"all"})
 public class MapFor {
@@ -26,11 +23,37 @@ public class MapFor {
         }
         //增强 for循环
         for (Object o : set) {
-            Object o1 = map.get(o.toString());
-            System.out.println(map.get(o.toString()));
-            System.out.println(o1.toString());
+//            Object o1 = map.get(o.toString());
+//            System.out.println(map.get(o.toString()));
+//            System.out.println(o1.toString());
+            System.out.println(o+":"+map.get(o));
         }
 
-        //第二种：
+        //第二种：取出所有的 value
+        Collection values = map.values();
+        //可以使用所有 Collection 遍历的方法
+        //增强 for
+        for (Object o : values) {
+            System.out.println(o);
+        }
+        //迭代器
+        Iterator iterator1 = values.iterator();
+        while (iterator1.hasNext()) {
+            Object next = iterator1.next();
+            System.out.println(next);
+        }
+
+        //第三种：通过 EntrySet 来获取
+        Set entrySet = map.entrySet();
+        for (Object o : entrySet) {
+            Map.Entry entry = (Map.Entry) o;
+            System.out.println(entry.getKey()+":"+entry.getValue());
+        }
+        //迭代器
+        Iterator iterator2 = entrySet.iterator();
+        while (iterator2.hasNext()) {
+            Map.Entry entry = (Map.Entry) iterator2.next();
+            System.out.println(entry.getKey()+":"+entry.getValue());
+        }
     }
 }
