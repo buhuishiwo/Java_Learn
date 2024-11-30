@@ -5,13 +5,37 @@
          version="4.0">
     
     <servlet>
-        <servlet-name>aservlet</servlet-name>
-        <servlet-class>com.haishili.javaweb.servlet.AServlet</servlet-class>
+        <servlet-name>configservlet</servlet-name>
+        <servlet-class>com.haishili.javaweb.servletconfig.ConfigTestServlet</servlet-class>
+        <init-param>
+            <param-name>driver</param-name>
+            <param-value>com.mysql.cj.jdbc.Driver</param-value>
+        </init-param>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:mysql://localhost:3306/haishili?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC</param-value>
+        </init-param>
+        <init-param>
+            <param-name>user</param-name>
+            <param-value>root</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>CXHcw9999</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
-        <servlet-name>aservlet</servlet-name>
-        <url-pattern>/a</url-pattern>
+        <servlet-name>configservlet</servlet-name>
+        <url-pattern>/config</url-pattern>
     </servlet-mapping>
+<!--    <servlet>-->
+<!--        <servlet-name>aaservlet</servlet-name>-->
+<!--        <servlet-class>com.haishili.javaweb.servlet.AServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>aaservlet</servlet-name>-->
+<!--        <url-pattern>/aa</url-pattern>-->
+<!--    </servlet-mapping>-->
     <servlet>
         <servlet-name>userservlet</servlet-name>
         <servlet-class>com.haishili.javaweb.servlet.UserServlet</servlet-class>
