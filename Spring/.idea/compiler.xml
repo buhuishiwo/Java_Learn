@@ -17,6 +17,7 @@
         <module name="spring6-003-DI" />
         <module name="myspring-test" />
         <module name="spring6-010-tx-bank" />
+        <module name="springdatajpa" />
         <module name="myspring" />
         <module name="spring6-005-aop-realapp" />
         <module name="review-reflect" />
@@ -29,6 +30,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="spring6-008-lifecycle" options="" />
       <module name="springboot01" options="-parameters" />
+      <module name="springdatajpa" options="-parameters" />
     </option>
   </component>
 </project>
