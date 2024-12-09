@@ -11,4 +11,22 @@
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>a</servlet-name>
+        <servlet-class>com.haishili.javaweb.servlet.requestdomain.AServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>a</servlet-name>
+        <url-pattern>/a</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>b</servlet-name>
+        <servlet-class>com.haishili.javaweb.servlet.requestdomain.BServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>b</servlet-name>
+        <url-pattern>/b</url-pattern>
+    </servlet-mapping>
 </web-app>
