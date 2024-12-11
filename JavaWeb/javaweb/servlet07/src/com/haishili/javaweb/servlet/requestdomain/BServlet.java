@@ -16,5 +16,12 @@ public class BServlet extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
         PrintWriter out = resp.getWriter();
         out.println(time);
+
+        String username = req.getParameter("username");
+        out.println(username);
+
+        String contextPath = req.getContextPath();
+        out.println(contextPath);
+        System.out.println(contextPath);
     }
 }
