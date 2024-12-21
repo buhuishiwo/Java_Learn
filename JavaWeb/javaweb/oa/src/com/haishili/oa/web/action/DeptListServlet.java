@@ -14,6 +14,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DeptListServlet extends HttpServlet {
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=utf-8");
@@ -33,6 +39,16 @@ public class DeptListServlet extends HttpServlet {
         out.print("            color: rgb(10, 31, 168);");
         out.print("        }");
         out.print("    </style>");
+
+        out.println("<script>");
+        out.println("    function del(dno) {");
+        out.println("let ok = window.confirm('确认删除?')");
+        out.println("if(ok) {");
+        out.println("   document.location.href='/oa/dept/delete?deptno='+dno");
+        out.println("    }");
+        out.println("}");
+        out.print("</script>");
+
         out.print("</head>");
         out.print("<body>");
         out.print("    <h1 style='text-align: center;'>部门列表</h1>");
@@ -67,7 +83,7 @@ public class DeptListServlet extends HttpServlet {
                 out.print("            <td>"+deptno+"</td>");
                 out.print("            <td>"+dname+"</td>");
                 out.print("            <td>");
-                out.print("                <a href=''>");
+                out.print("                <a href='javascript:void(0)' onclick='del("+deptno+")'>");
                 out.print("                删除");
                 out.print("                </a>");
                 out.print("                <a href='edit.html'>");
@@ -90,7 +106,7 @@ public class DeptListServlet extends HttpServlet {
             }
         }
         out.print("    </table>");
-        out.print("    <a href='add.html'>新增部门</a>");
+        out.print("    <a href='/oa/add.html'>新增部门</a>");
         out.print("</body>");
         out.print("</html>");
     }

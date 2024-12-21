@@ -13,6 +13,15 @@
             color: rgb(10, 31, 168);
         }
     </style>
+    <script>
+        function del(dno) {
+            let ok = window.confirm("确认删除?")
+            if(ok) {
+                alert("删除中")
+                document.location.href="/oa/dept/delete?deptno="+dno+""
+            }
+        }
+    </script>
 </head>
 <body>
     <h1 style='text-align: center;'>部门列表</h1>
@@ -29,7 +38,7 @@
             <td>10</td>
             <td>销售部</td>
             <td>
-                <a href=''>
+                <a href="javascript:void(0)" onclick="del(10)">
                     删除
                 </a>
                 <a href='edit.html'>
