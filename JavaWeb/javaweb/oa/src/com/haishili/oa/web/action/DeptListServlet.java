@@ -86,7 +86,7 @@ public class DeptListServlet extends HttpServlet {
                 out.print("                <a href='javascript:void(0)' onclick='del("+deptno+")'>");
                 out.print("                删除");
                 out.print("                </a>");
-                out.print("                <a href='edit.html'>");
+                out.print("                <a href='/oa/dept/edit?deptno="+deptno+"'>");
                 out.print("                修改");
                 out.print("                </a>");
                 out.print("                <a href='/oa/dept/detail?deptno="+deptno+"'>");

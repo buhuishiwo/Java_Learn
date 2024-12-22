@@ -35,4 +35,20 @@
         <servlet-name>add</servlet-name>
         <url-pattern>/dept/add</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>edit</servlet-name>
+        <servlet-class>com.haishili.oa.web.action.DeptEditServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>edit</servlet-name>
+        <url-pattern>/dept/edit</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>modify</servlet-name>
+        <servlet-class>com.haishili.oa.web.action.DeptModifyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>modify</servlet-name>
+        <url-pattern>/dept/modify</url-pattern>
+    </servlet-mapping>
 </web-app>
