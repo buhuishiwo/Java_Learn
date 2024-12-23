@@ -38,7 +38,9 @@ public class DeptDeleteServlet extends HttpServlet {
             }
         }
         if(i == 1) {
-            req.getRequestDispatcher("/dept/list").forward(req, resp);
+//            req.getRequestDispatcher("/dept/list").forward(req, resp);
+            resp.sendRedirect(req.getContextPath() + "/dept/list");
         }
+
     }
 }

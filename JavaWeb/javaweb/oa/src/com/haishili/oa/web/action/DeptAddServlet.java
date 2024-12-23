@@ -41,7 +41,13 @@ public class DeptAddServlet extends HttpServlet {
             }
         }
         if(count == 1) {
-            req.getRequestDispatcher("/dept/list").forward(req, resp);
+            //转发
+            //会出现刷新 BUG
+//            req.getRequestDispatcher("/dept/list").forward(req, resp);
+
+            //重定向
+            //使用重定向则不会出现 BUG
+            resp.sendRedirect(req.getContextPath() + "/dept/list");
         }
     }
 }

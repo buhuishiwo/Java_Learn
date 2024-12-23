@@ -42,7 +42,7 @@ public class DeptModifyServlet extends HttpServlet {
             }
         }
         if(count == 1) {
-            req.getRequestDispatcher("/dept/list").forward(req, resp);
+            resp.sendRedirect(req.getContextPath() + "/dept/list");
         }
     }
 }
