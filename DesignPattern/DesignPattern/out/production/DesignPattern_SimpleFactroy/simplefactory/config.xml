@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 <?xml version="1.0"?>
 <config>
 	<fruitType>Banana</fruitType>
+=======
+<?xml version="1.0"?>
+<config>
+	<fruitType>Banana</fruitType>
+>>>>>>> a5613707a74e9d14e557944f071f76b9d422af2b
 </config>

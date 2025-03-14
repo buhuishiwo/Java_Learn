@@ -19,6 +19,12 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
     <orderEntry type="library" exported="" name="lib" level="project" />
+=======
+    <orderEntry type="library" name="servlet-api" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 10.1.33" level="application_server_libraries" />
+    <orderEntry type="library" name="lib" level="project" />
+>>>>>>> a5613707a74e9d14e557944f071f76b9d422af2b
   </component>
 </module>

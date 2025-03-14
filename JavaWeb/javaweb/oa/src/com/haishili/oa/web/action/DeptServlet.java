@@ -14,7 +14,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+<<<<<<< HEAD
 
+=======
+@WebServlet({"/dept/list","/dept/save"})
+>>>>>>> a5613707a74e9d14e557944f071f76b9d422af2b
 public class DeptServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
