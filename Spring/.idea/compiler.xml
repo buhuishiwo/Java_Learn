@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring6-007-bean-instantiation" />
+        <module name="spring6-002-first" />
+        <module name="spring6-008-lifecycle" />
+        <module name="spring6-006-IoC-annoation" />
+        <module name="spring6-009-circular-dependency" />
+        <module name="spring6-004-AOP" />
+        <module name="springboot01" />
+        <module name="review-annoation" />
+        <module name="spring6-003-DI" />
+        <module name="myspring-test" />
+        <module name="spring6-010-tx-bank" />
+        <module name="springdatajpa" />
+        <module name="myspring" />
+        <module name="spring6-005-aop-realapp" />
+        <module name="review-reflect" />
+        <module name="spring6smalltest" />
+        <module name="spring6-010-jdbc" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="spring6-008-lifecycle" options="" />
+      <module name="springboot01" options="-parameters" />
+      <module name="springdatajpa" options="-parameters" />
+    </option>
+  </component>
+</project>

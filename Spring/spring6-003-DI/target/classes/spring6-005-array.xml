@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="w1" class="com.haishili.spring6.bean.Woman">
+        <property name="name" value="张三"/>
+    </bean>
+    <bean id="w2" class="com.haishili.spring6.bean.Woman">
+        <property name="name" value="李四"/>
+    </bean>
+    <bean id="w3" class="com.haishili.spring6.bean.Woman">
+        <property name="name" value="王五"/>
+    </bean>
+    <bean id="setArrayDI" class="com.haishili.spring6.bean.SetArrayDI">
+            <property name="aiHaos">
+                <array>
+                    <value>
+                        抽烟
+                    </value>
+                    <value>
+                        喝酒
+                    </value>
+                    <value>
+                        烫头
+                    </value>
+                </array>
+            </property>
+            <property name="womans">
+                <array>
+                    <ref bean="w1"/>
+                    <ref bean="w2"/>
+                    <ref bean="w3"/>
+                </array>
+            </property>
+        </bean>
+</beans>

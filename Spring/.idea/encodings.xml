@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Spring6/spring6-002-first/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Spring6/spring6-002-first/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Spring6/spring6-003-DI/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Spring6/spring6-003-DI/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myspring-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myspring-test/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myspring/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myspring/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/review-annoation/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/review-annoation/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/review-reflect/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/review-reflect/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-002-first/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-002-first/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-003-DI/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-003-DI/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-004-AOP/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-004-AOP/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-005-aop-realapp/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-005-aop-realapp/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-006-IoC-annoation/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-006-IoC-annoation/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-007-bean-instantiation/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-007-bean-instantiation/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-008-lifecycle/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-008-lifecycle/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-009-circular-dependency/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-009-circular-dependency/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-010-jdbc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-010-jdbc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-010-tx-bank/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-010-tx-bank/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6smalltest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6smalltest/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot01/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot01/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springdatajpa/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springdatajpa/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

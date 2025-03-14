@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="wifeBean" class="com.haishili.spring6.bean.Wife" scope="prototype">
+        <property name="husband" ref="husbandBean"/>
+        <property name="name" value="王五"/>
+    </bean>
+    <bean id="husbandBean" class="com.haishili.spring6.bean.Husband" scope="singleton">
+        <property name="wife" ref="wifeBean"/>
+        <property name="name" value="李四"/>
+    </bean>
+</beans>

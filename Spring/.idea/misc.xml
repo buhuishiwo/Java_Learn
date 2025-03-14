@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/spring6-003-DI/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring6/spring6-002-first/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring6/spring6-003-DI/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-004-AOP/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-002-first/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-005-aop-realapp/pom.xml" />
+        <option value="$PROJECT_DIR$/review-annoation/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-006-IoC-annoation/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-007-bean-instantiation/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-008-lifecycle/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-009-circular-dependency/pom.xml" />
+        <option value="$PROJECT_DIR$/review-reflect/pom.xml" />
+        <option value="$PROJECT_DIR$/myspring/pom.xml" />
+        <option value="$PROJECT_DIR$/myspring-test/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot01/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6smalltest/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-010-tx-bank/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-010-jdbc/pom.xml" />
+        <option value="$PROJECT_DIR$/springdatajpa/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
