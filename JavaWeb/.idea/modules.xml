@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FirstServlet/FirstServlet.iml" filepath="$PROJECT_DIR$/FirstServlet/FirstServlet.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/JavaWeb.iml" filepath="$PROJECT_DIR$/.idea/JavaWeb.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaweb/oa/oa.iml" filepath="$PROJECT_DIR$/javaweb/oa/oa.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaweb/oa2/oa2.iml" filepath="$PROJECT_DIR$/javaweb/oa2/oa2.iml" />

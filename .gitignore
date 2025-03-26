@@ -1,0 +1,4 @@
+*.xml
+.DS_Store
+
+git rm --cached .xml
