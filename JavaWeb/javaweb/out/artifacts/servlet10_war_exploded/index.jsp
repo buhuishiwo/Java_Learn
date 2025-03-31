@@ -12,6 +12,7 @@
     <title>Cookie</title>
 </head>
 <body>
- <a href="<%=request.getContextPath()%>/cookie">服务器生成cookie，然后将cookie响应给浏览器，浏览器接收cookie，将cookie放到客户端上</a>
+ <a href="<%=request.getContextPath()%>/cookie/generate">服务器生成cookie，然后将cookie响应给浏览器，浏览器接收cookie，将cookie放到客户端上</a>
+<a href="<%=request.getContextPath()%>/sendcookie">点击向服务器发送cookie</a>
 </body>
 </html>
