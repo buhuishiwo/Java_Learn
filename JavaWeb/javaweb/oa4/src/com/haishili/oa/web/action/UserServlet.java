@@ -3,10 +3,7 @@ package com.haishili.oa.web.action;
 import com.haishili.oa.utils.DBUtils;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,23 +18,31 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String servletPath = req.getServletPath();
-
+        //判断访问路径来选择具体调用的方法
         if(servletPath.equals("/user/login")) {
             doLogin(req,resp);
-        } else if (servletPath.equals("/user/exit")) {
+        } else  {
             doExit(req,resp);
         }
     }
 
     private void doExit(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession(false);
+        Cookie[] cookies = req.getCookies();
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
-        if (session != null) {
+        if (session != null && cookies != null) {
             session.invalidate();
-            out.println("退出成功");
-            resp.sendRedirect(req.getContextPath());
+            for (Cookie cookie : cookies) {
+                cookie.setValue("");
+                //删除cookie
+                cookie.setMaxAge(0);
+                cookie.setPath(req.getContextPath());
+                resp.addCookie(cookie);
+            }
         }
+        out.println("退出成功");
+        resp.sendRedirect(req.getContextPath()+"/index.jsp");
     }
 
     private void doLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -64,7 +69,7 @@ public class UserServlet extends HttpServlet {
             rs = ps.executeQuery();
             if (rs.next()) {
                 success = true;
-                session.setAttribute("username", username);
+                session.setAttribute("loginName", username);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -72,7 +77,22 @@ public class UserServlet extends HttpServlet {
 
         if (success) {
             //成功
-
+            if(req.getParameter("isChecked")!=null) {
+                if(req.getParameter("isChecked").equals("1")) {
+                    Cookie cookie1 = new Cookie("loginName", username);
+                    Cookie cookie2 = new Cookie("loginPassword", password);
+                    Cookie cookie3 = new Cookie("sessionId", req.getSession().getId());
+                    cookie1.setPath(req.getContextPath());
+                    cookie2.setPath(req.getContextPath());
+                    cookie3.setPath(req.getContextPath());
+                    cookie1.setMaxAge(60 * 60 * 24 * 10);
+                    cookie2.setMaxAge(60 * 60 * 24 * 10);
+                    cookie3.setMaxAge(60 * 60 * 24 * 10);
+                    resp.addCookie(cookie1);
+                    resp.addCookie(cookie2);
+                    resp.addCookie(cookie3);
+                }
+            }
             resp.sendRedirect(req.getContextPath() + "/dept/list");
         } else {
             //失败

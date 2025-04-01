@@ -22,7 +22,7 @@ public class DeptServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
-        if (session != null && session.getAttribute("username") != null) {
+        if (session != null && session.getAttribute("loginName") != null) {
             String contextPath = request.getServletPath();
             if("/dept/list".equals(contextPath)) {
                 try {
@@ -41,7 +41,7 @@ public class DeptServlet extends HttpServlet {
             }
         }
         else {
-            response.sendRedirect(request.getContextPath() + "/error.jsp");
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
         }
 
     }
