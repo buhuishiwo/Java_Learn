@@ -27,5 +27,6 @@ public class CookieServlet extends HttpServlet {
         //把cookie传到浏览器
         resp.addCookie(cookie);
         resp.addCookie(zhangsan);
+        
     }
 }
