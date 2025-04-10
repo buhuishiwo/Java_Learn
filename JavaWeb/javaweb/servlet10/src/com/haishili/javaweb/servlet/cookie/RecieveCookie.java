@@ -9,6 +9,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+/**
+ * @author 电脑
+ */
 @WebServlet("/sendcookie")
 public class RecieveCookie extends HttpServlet {
     @Override

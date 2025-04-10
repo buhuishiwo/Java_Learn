@@ -9,6 +9,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+/**
+ * @author Haishili
+ */
 @WebServlet("/cookie/generate")
 public class CookieServlet extends HttpServlet {
     @Override
