@@ -6,7 +6,7 @@ public class Hero extends Tank {
         super(x, y);
     }
 
-    public void ShotGun() {
+    public void shotGun() {
         switch (getDirect()){
             case 0:
                 shot = new Shot(getX()+20,getY(),0);

@@ -37,6 +37,7 @@ public class Shot implements Runnable {
         this.direction = direction;
     }
 
+    @Override
     public void run() {
         while (true) {
             try {

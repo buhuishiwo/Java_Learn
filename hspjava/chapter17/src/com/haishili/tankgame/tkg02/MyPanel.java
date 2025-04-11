@@ -4,34 +4,45 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Vector;
 
 public class MyPanel extends JPanel implements KeyListener,Runnable{
-    Hero hero = null;
-    EnemyTank enemy1 = null;
-    EnemyTank enemy2 = null;
-    EnemyTank enemy3 = null;
+    Hero hero;
+    Vector<EnemyTank> enemyTanks = new Vector<>();
+    int enemyTanksSize = 3;
     public MyPanel() {
         hero = new Hero(200,400);
-        enemy1 = new EnemyTank(100,100);
-        enemy2 = new EnemyTank(200,100);
-        enemy3 = new EnemyTank(300,100);
         hero.setSpeed(5);
-        enemy1.setSpeed(1);
-        enemy2.setSpeed(1);
-        enemy3.setSpeed(1);
+        for(int i = 0;i < enemyTanksSize; i++){
+            EnemyTank enemyTank = new EnemyTank((200 * (i + 1)),0);
+            enemyTank.setDirect(2);
+            //给坦克添加子弹
+            Shot shot = new Shot(enemyTank.getX() + 20, enemyTank.getY() + 60, enemyTank.getDirect());
+            enemyTank.shots.add(shot);
+            new Thread(shot).start();
+            enemyTanks.add(enemyTank);
+        }
     }
+    @Override
     public void paint(Graphics g) {
-        g.fillRect(0,0,getWidth(),getHeight());
+        super.paint(g);
         if(hero.shot!=null && hero.shot.isLive) {
-            System.out.println("子弹被绘制");
-            g.draw3DRect(hero.shot.getX(),hero.shot.getY(),10,10,false);
+            g.draw3DRect(hero.shot.getX(),hero.shot.getY(),1,1,false);
         }
         drawTank(hero.getX(), hero.getY(), g,hero.getDirect(),0);
-        drawTank(enemy1.getX(),enemy1.getY(),g,enemy1.getDirect(),1);
-        drawTank(enemy2.getX(),enemy2.getY(),g,enemy2.getDirect(),1);
-        drawTank(enemy3.getX(),enemy3.getY(),g,enemy3.getDirect(),1);
-
-
+        for (EnemyTank enemyTank : enemyTanks) {
+            if(enemyTank.isLive){
+                drawTank(enemyTank.getX(),enemyTank.getY(),g,enemyTank.getDirect(),1);
+            }
+            for (Shot shot : enemyTank.shots) {
+                if(shot.isLive) {
+                   g.draw3DRect(shot.getX(),shot.getY(),1,1,false);
+                }else{
+                    //从Vector中移除子弹
+                    enemyTank.shots.remove(shot);
+                }
+            }
+        }
     }
 
     /**
@@ -87,6 +98,28 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
         }
     }
 
+    public static void hitTank(Shot shot,EnemyTank enemyTank) {
+        switch (enemyTank.getDirect()){
+            case 0:
+            case 2:
+                if(shot.getX()> enemyTank.getX() && shot.getY() < enemyTank.getY()+ 40
+                        && shot.getY() > enemyTank.getY() && shot.getY() < enemyTank.getY() + 60)
+                {
+                    shot.isLive = false;
+                    enemyTank.isLive = false;
+                }
+                break;
+            case 1:
+            case 3:
+                if(shot.getX() > enemyTank.getX() && shot.getY() < enemyTank.getY() + 60
+                && shot.getY() > enemyTank.getY() && shot.getY() < enemyTank.getY() +40){
+                    shot.isLive = false;
+                    enemyTank.isLive = false;
+                }
+                break;
+        }
+    }
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -108,7 +141,7 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
             hero.moveRight();
         }
         if(e.getKeyCode() == KeyEvent.VK_J) {
-            hero.ShotGun();
+            hero.shotGun();
         }
         repaint();
     }
@@ -126,8 +159,13 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+            //判断是否击中敌人坦克
+            if(hero.shot.isLive){
+                for (EnemyTank enemyTank : enemyTanks) {
+                    hitTank(hero.shot,enemyTank);
+                }
+            }
             this.repaint();
         }
-
     }
 }

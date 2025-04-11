@@ -22,6 +22,12 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
         enemy2.setSpeed(1);
         enemy3.setSpeed(1);
     }
+
+    /**
+     *
+     * @param g  the <code>Graphics</code> context in which to paint
+     */
+    @Override
     public void paint(Graphics g) {
         super.paint(g);
         if(hero.shot!=null && hero.shot.isLive) {
@@ -56,7 +62,8 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
 
         //direct 0 1 2 3 分别表示上右下左
         switch (direct) {
-            case 0://表示向上
+            //表示向上
+            case 0:
                 g.fill3DRect(x, y, 10,60,false);
                 g.fill3DRect(x+30, y, 10,60,false);
                 g.fill3DRect(x+10,y+10,20,40,false);
@@ -70,7 +77,8 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
                 g.fillOval(x+20,y+10,20,20);
                 g.drawLine(x+30,y+20,x+60,y+20);
                 break;
-            case 2://表示向下
+            //表示向下
+            case 2:
                 g.fill3DRect(x, y, 10,60,false);
                 g.fill3DRect(x+30, y, 10,60,false);
                 g.fill3DRect(x+10,y+10,20,40,false);
