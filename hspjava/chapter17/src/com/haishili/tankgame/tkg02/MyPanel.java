@@ -6,6 +6,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Vector;
 
+/**
+ * @author haishili
+ */
 public class MyPanel extends JPanel implements KeyListener,Runnable{
     Hero hero;
     Vector<EnemyTank> enemyTanks = new Vector<>();
@@ -30,16 +33,22 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
             g.draw3DRect(hero.shot.getX(),hero.shot.getY(),1,1,false);
         }
         drawTank(hero.getX(), hero.getY(), g,hero.getDirect(),0);
-        for (EnemyTank enemyTank : enemyTanks) {
-            if(enemyTank.isLive){
-                drawTank(enemyTank.getX(),enemyTank.getY(),g,enemyTank.getDirect(),1);
-            }
-            for (Shot shot : enemyTank.shots) {
-                if(shot.isLive) {
-                   g.draw3DRect(shot.getX(),shot.getY(),1,1,false);
-                }else{
-                    //从Vector中移除子弹
-                    enemyTank.shots.remove(shot);
+        if(enemyTanks != null) {
+            //这里会报错ConcurrentModificationException
+            for (EnemyTank enemyTank : enemyTanks) {
+                if(enemyTank.isLive){
+                    drawTank(enemyTank.getX(),enemyTank.getY(),g,enemyTank.getDirect(),1);
+                    for (Shot shot : enemyTank.shots) {
+                        if (shot.isLive) {
+                            g.draw3DRect(shot.getX(), shot.getY(), 1, 1, false);
+                        } else {
+                            //从Vector中移除子弹
+                            enemyTank.shots.remove(shot);
+                        }
+                    }
+                }
+                else{
+                    enemyTanks.remove(enemyTank);
                 }
             }
         }
@@ -55,10 +64,12 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
      */
     public void drawTank(int x, int y, Graphics g, int direct, int type) {
         switch (type) {
-            case 0://我
+            //我
+            case 0:
                 g.setColor(Color.blue);
                 break;
-            case 1://敌
+            //敌
+            case 1:
                 g.setColor(Color.red);
                 break;
         }
@@ -98,11 +109,16 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
         }
     }
 
+    /**
+     *
+     * @param shot
+     * @param enemyTank
+     */
     public static void hitTank(Shot shot,EnemyTank enemyTank) {
         switch (enemyTank.getDirect()){
             case 0:
             case 2:
-                if(shot.getX()> enemyTank.getX() && shot.getY() < enemyTank.getY()+ 40
+                if(shot.getX()> enemyTank.getX() && shot.getX() < enemyTank.getX()+ 40
                         && shot.getY() > enemyTank.getY() && shot.getY() < enemyTank.getY() + 60)
                 {
                     shot.isLive = false;
@@ -111,7 +127,7 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
                 break;
             case 1:
             case 3:
-                if(shot.getX() > enemyTank.getX() && shot.getY() < enemyTank.getY() + 60
+                if(shot.getX() > enemyTank.getX() && shot.getX() < enemyTank.getX() + 60
                 && shot.getY() > enemyTank.getY() && shot.getY() < enemyTank.getY() +40){
                     shot.isLive = false;
                     enemyTank.isLive = false;
@@ -160,7 +176,7 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
                 throw new RuntimeException(e);
             }
             //判断是否击中敌人坦克
-            if(hero.shot.isLive){
+            if(hero.shot != null && hero.shot.isLive){
                 for (EnemyTank enemyTank : enemyTanks) {
                     hitTank(hero.shot,enemyTank);
                 }

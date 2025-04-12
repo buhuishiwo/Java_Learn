@@ -59,7 +59,6 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
                 g.setColor(Color.red);
                 break;
         }
-
         //direct 0 1 2 3 分别表示上右下左
         switch (direct) {
             //表示向上
