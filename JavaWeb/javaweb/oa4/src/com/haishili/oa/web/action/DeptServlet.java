@@ -21,27 +21,43 @@ import java.util.List;
 public class DeptServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession(false);
-        if (session != null && session.getAttribute("loginName") != null) {
-            String contextPath = request.getServletPath();
-            if("/dept/list".equals(contextPath)) {
-                try {
-                    doList(request,response);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }else if (contextPath.equals("/dept/detail")) {
-                doDetail(request,response);
-            }else if (contextPath.equals("/dept/delete")) {
-                doDelete(request,response);
-            } else if (contextPath.equals("/dept/modify")) {
-                doModify(request,response);
-            }else if (contextPath.equals("/dept/save")) {
-                doSave(request,response);
+//        HttpSession session = request.getSession(false);
+//        if (session != null && session.getAttribute("loginName") != null) {
+//            String contextPath = request.getServletPath();
+//            if("/dept/list".equals(contextPath)) {
+//                try {
+//                    doList(request,response);
+//                } catch (SQLException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }else if (contextPath.equals("/dept/detail")) {
+//                doDetail(request,response);
+//            }else if (contextPath.equals("/dept/delete")) {
+//                doDelete(request,response);
+//            } else if (contextPath.equals("/dept/modify")) {
+//                doModify(request,response);
+//            }else if (contextPath.equals("/dept/save")) {
+//                doSave(request,response);
+//            }
+//        }
+//        else {
+//            response.sendRedirect(request.getContextPath() + "/index.jsp");
+//        }
+        String contextPath = request.getServletPath();
+        if("/dept/list".equals(contextPath)) {
+            try {
+                doList(request,response);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        }
-        else {
-            response.sendRedirect(request.getContextPath() + "/index.jsp");
+        }else if (contextPath.equals("/dept/detail")) {
+            doDetail(request,response);
+        }else if (contextPath.equals("/dept/delete")) {
+            doDelete(request,response);
+        } else if (contextPath.equals("/dept/modify")) {
+            doModify(request,response);
+        }else if (contextPath.equals("/dept/save")) {
+            doSave(request,response);
         }
 
     }

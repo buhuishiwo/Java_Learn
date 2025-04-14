@@ -4,6 +4,8 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 <!--配置文件方法-->
+<!--在web.xml文件中进行配置的时候，Filter的执行顺序是什么？
+依靠filter-mapping标签的配置位置，越靠上优先级越高。-->
 <!--    <filter>-->
 <!--        <filter-name>filter1</filter-name>-->
 <!--        <filter-class>com.haishili.filter.Filter1</filter-class>-->

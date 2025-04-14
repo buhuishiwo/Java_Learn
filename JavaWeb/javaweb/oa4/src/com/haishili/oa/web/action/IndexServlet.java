@@ -22,10 +22,10 @@ public class IndexServlet extends HttpServlet {
         String loginPassword = null;
         if(cookies != null) {
             for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("loginName")) {
+                if ("loginName".equals(cookie.getName())) {
                     loginName = cookie.getValue();
                 }
-                if (cookie.getName().equals("loginPassword")) {
+                if ("loginPassword".equals(cookie.getName())) {
                     loginPassword = cookie.getValue();
                 }
             }
