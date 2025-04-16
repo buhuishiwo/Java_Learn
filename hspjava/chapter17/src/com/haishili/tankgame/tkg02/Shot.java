@@ -46,16 +46,20 @@ public class Shot implements Runnable {
                 throw new RuntimeException(e);
             }
             switch (direction) {
-                case 0://向上
+                case 0:
+                    //向上
                     y -= speed;
                     break;
-                    case 1://向右
+                    case 1:
+                        //向右
                         x += speed;
                         break;
-                        case 2://向下
+                        case 2:
+                            //向下
                             y += speed;
                             break;
-                            case 3://向左
+                            case 3:
+                                //向左
                                 x -= speed;
                                 break;
             }
@@ -63,7 +67,6 @@ public class Shot implements Runnable {
                 isLive = false;
                 break;
             }
-            System.out.println("x=" + x + ", y=" + y);
         }
     }
 }

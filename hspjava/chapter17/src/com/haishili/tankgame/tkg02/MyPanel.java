@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Random;
 import java.util.Vector;
 
 /**
@@ -12,25 +13,52 @@ import java.util.Vector;
 public class MyPanel extends JPanel implements KeyListener,Runnable{
     Hero hero;
     Vector<EnemyTank> enemyTanks = new Vector<>();
+    Vector<Boom> booms = new Vector<>();
     int enemyTanksSize = 3;
+    Image image1 = null;
+    Image image2 = null;
+    Image image3 = null;
+
     public MyPanel() {
         hero = new Hero(200,400);
         hero.setSpeed(5);
         for(int i = 0;i < enemyTanksSize; i++){
             EnemyTank enemyTank = new EnemyTank((200 * (i + 1)),0);
-            enemyTank.setDirect(2);
+            new Thread(enemyTank).start();
             //给坦克添加子弹
             Shot shot = new Shot(enemyTank.getX() + 20, enemyTank.getY() + 60, enemyTank.getDirect());
             enemyTank.shots.add(shot);
             new Thread(shot).start();
             enemyTanks.add(enemyTank);
+
         }
+        image1 = Toolkit.getDefaultToolkit().getImage(MyPanel.class.getResource("/com/haishili/tankgame/tkg02/bomb_1.gif"));
+        image2 = Toolkit.getDefaultToolkit().getImage(MyPanel.class.getResource("/com/haishili/tankgame/tkg02/bomb_2.gif"));
+        image3 = Toolkit.getDefaultToolkit().getImage(MyPanel.class.getResource("/com/haishili/tankgame/tkg02/bomb_3.gif"));
     }
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        if(hero.shot!=null && hero.shot.isLive) {
-            g.draw3DRect(hero.shot.getX(),hero.shot.getY(),1,1,false);
+        for (Shot shot : hero.shots) {
+            if(shot!=null && shot.isLive) {
+                g.draw3DRect(shot.getX(),shot.getY(),1,1,false);
+            }
+        }
+
+
+        for (Boom boom : booms) {
+            if(boom.life > 8) {
+                g.drawImage(image1,boom.getX(),boom.getY(),60,60,this);
+            }else if(boom.life > 4){
+                g.drawImage(image2,boom.getX(),boom.getY(),60,60,this);
+            }else{
+                g.drawImage(image3,boom.getX(),boom.getY(),60,60,this);
+            }
+            boom.lifeDown();
+
+            if(!boom.isLive) {
+                booms.remove(boom);
+            }
         }
         drawTank(hero.getX(), hero.getY(), g,hero.getDirect(),0);
         if(enemyTanks != null) {
@@ -38,6 +66,7 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
             for (EnemyTank enemyTank : enemyTanks) {
                 if(enemyTank.isLive){
                     drawTank(enemyTank.getX(),enemyTank.getY(),g,enemyTank.getDirect(),1);
+
                     for (Shot shot : enemyTank.shots) {
                         if (shot.isLive) {
                             g.draw3DRect(shot.getX(), shot.getY(), 1, 1, false);
@@ -114,7 +143,7 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
      * @param shot
      * @param enemyTank
      */
-    public static void hitTank(Shot shot,EnemyTank enemyTank) {
+    public void hitTank(Shot shot,EnemyTank enemyTank) {
         switch (enemyTank.getDirect()){
             case 0:
             case 2:
@@ -123,6 +152,7 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
                 {
                     shot.isLive = false;
                     enemyTank.isLive = false;
+                    booms.add(new Boom(enemyTank.getX(),enemyTank.getY()));
                 }
                 break;
             case 1:
@@ -131,6 +161,7 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
                 && shot.getY() > enemyTank.getY() && shot.getY() < enemyTank.getY() +40){
                     shot.isLive = false;
                     enemyTank.isLive = false;
+                    booms.add(new Boom(enemyTank.getX(),enemyTank.getY()));
                 }
                 break;
         }
@@ -176,11 +207,14 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
                 throw new RuntimeException(e);
             }
             //判断是否击中敌人坦克
-            if(hero.shot != null && hero.shot.isLive){
-                for (EnemyTank enemyTank : enemyTanks) {
-                    hitTank(hero.shot,enemyTank);
+            for (Shot shot : hero.shots) {
+                if(shot != null && shot.isLive){
+                    for (EnemyTank enemyTank : enemyTanks) {
+                        hitTank(shot,enemyTank);
+                    }
                 }
             }
+
             this.repaint();
         }
     }
