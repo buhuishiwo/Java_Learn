@@ -9,10 +9,15 @@ public class EnemyTank extends Tank implements Runnable {
     public EnemyTank(int x, int y) {
         super(x, y);
     }
+
+    /**
+     * 敌人坦克需要自动移动，那么就得把坦克当作一个线程，在线程中执行自动移动操作
+     */
     @Override
     public void run() {
         setSpeed(5);
         Shot shot = null;
+        //判断坦克是否存活
         while(isLive){
             Random rand = new Random();
             switch (getDirect()) {
@@ -28,6 +33,7 @@ public class EnemyTank extends Tank implements Runnable {
                             throw new RuntimeException(e);
                         }
                     }
+                    //坦克自动射击
                     shot = new Shot(getX()+20,getY(),0);
                     shots.add(shot);
                     new Thread(shot).start();

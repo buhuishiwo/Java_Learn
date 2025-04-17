@@ -24,14 +24,11 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
         hero.setSpeed(5);
         for(int i = 0;i < enemyTanksSize; i++){
             EnemyTank enemyTank = new EnemyTank((200 * (i + 1)),0);
+            //在创建敌方坦克时开启坦克线程
             new Thread(enemyTank).start();
-            //给坦克添加子弹
-            Shot shot = new Shot(enemyTank.getX() + 20, enemyTank.getY() + 60, enemyTank.getDirect());
-            enemyTank.shots.add(shot);
-            new Thread(shot).start();
             enemyTanks.add(enemyTank);
-
         }
+        //导入坦克爆炸图片
         image1 = Toolkit.getDefaultToolkit().getImage(MyPanel.class.getResource("/com/haishili/tankgame/tkg02/bomb_1.gif"));
         image2 = Toolkit.getDefaultToolkit().getImage(MyPanel.class.getResource("/com/haishili/tankgame/tkg02/bomb_2.gif"));
         image3 = Toolkit.getDefaultToolkit().getImage(MyPanel.class.getResource("/com/haishili/tankgame/tkg02/bomb_3.gif"));
@@ -92,20 +89,18 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
      * @param type 坦克类型（敌我）
      */
     public void drawTank(int x, int y, Graphics g, int direct, int type) {
-        switch (type) {
-            //我
+        switch(type){
             case 0:
                 g.setColor(Color.blue);
                 break;
-            //敌
             case 1:
                 g.setColor(Color.red);
                 break;
         }
-
         //direct 0 1 2 3 分别表示上右下左
         switch (direct) {
-            case 0://表示向上
+            case 0:
+                //表示向上
                 g.fill3DRect(x, y, 10,60,false);
                 g.fill3DRect(x+30, y, 10,60,false);
                 g.fill3DRect(x+10,y+10,20,40,false);
@@ -119,7 +114,8 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
                 g.fillOval(x+20,y+10,20,20);
                 g.drawLine(x+30,y+20,x+60,y+20);
                 break;
-            case 2://表示向下
+            case 2:
+                //表示向下
                 g.fill3DRect(x, y, 10,60,false);
                 g.fill3DRect(x+30, y, 10,60,false);
                 g.fill3DRect(x+10,y+10,20,40,false);
@@ -140,8 +136,8 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
 
     /**
      *
-     * @param shot
-     * @param enemyTank
+     * @param shot 发射的子弹
+     * @param enemyTank 受击的坦克
      */
     public void hitTank(Shot shot,EnemyTank enemyTank) {
         switch (enemyTank.getDirect()){

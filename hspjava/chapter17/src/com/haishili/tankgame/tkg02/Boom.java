@@ -3,6 +3,8 @@ package com.haishili.tankgame.tkg02;
 /**
  * @author haishili
  * @date 2025/4/16
+ * 坦克爆炸类
+ * 用于坦克受击爆炸时图片得一些属性
  */
 public class Boom {
     private int x;
@@ -23,6 +25,9 @@ public class Boom {
         return y;
     }
 
+    /**
+     * 坦克爆炸生命周期减少
+     */
     public void lifeDown() {
         if(isLive){
             if(life > 0) {
