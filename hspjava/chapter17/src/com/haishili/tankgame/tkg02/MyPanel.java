@@ -57,7 +57,9 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
                 booms.remove(boom);
             }
         }
-        drawTank(hero.getX(), hero.getY(), g,hero.getDirect(),0);
+        if(hero.isLive) {
+            drawTank(hero.getX(), hero.getY(), g,hero.getDirect(),0);
+        }
         if(enemyTanks != null) {
             //这里会报错ConcurrentModificationException
             for (EnemyTank enemyTank : enemyTanks) {
@@ -137,29 +139,42 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
     /**
      *
      * @param shot 发射的子弹
-     * @param enemyTank 受击的坦克
+     * @param tank 受击的坦克
      */
-    public void hitTank(Shot shot,EnemyTank enemyTank) {
-        switch (enemyTank.getDirect()){
+    public void hitTank(Shot shot,Tank tank) {
+        switch (tank.getDirect()){
             case 0:
             case 2:
-                if(shot.getX()> enemyTank.getX() && shot.getX() < enemyTank.getX()+ 40
-                        && shot.getY() > enemyTank.getY() && shot.getY() < enemyTank.getY() + 60)
+                if(shot.getX()> tank.getX() && shot.getX() < tank.getX()+ 40
+                        && shot.getY() > tank.getY() && shot.getY() < tank.getY() + 60)
                 {
                     shot.isLive = false;
-                    enemyTank.isLive = false;
-                    booms.add(new Boom(enemyTank.getX(),enemyTank.getY()));
+                    tank.isLive = false;
+                    booms.add(new Boom(tank.getX(),tank.getY()));
                 }
                 break;
             case 1:
             case 3:
-                if(shot.getX() > enemyTank.getX() && shot.getX() < enemyTank.getX() + 60
-                && shot.getY() > enemyTank.getY() && shot.getY() < enemyTank.getY() +40){
+                if(shot.getX() > tank.getX() && shot.getX() < tank.getX() + 60
+                && shot.getY() > tank.getY() && shot.getY() < tank.getY() +40){
                     shot.isLive = false;
-                    enemyTank.isLive = false;
-                    booms.add(new Boom(enemyTank.getX(),enemyTank.getY()));
+                    tank.isLive = false;
+                    booms.add(new Boom(tank.getX(),tank.getY()));
                 }
                 break;
+        }
+    }
+
+    /**
+     *
+     */
+    public void hitHero() {
+        for (EnemyTank enemyTank : enemyTanks) {
+            for (Shot shot : enemyTank.shots) {
+                if(hero.isLive && shot.isLive) {
+                    hitTank(shot,hero);
+                }
+            }
         }
     }
 
@@ -210,7 +225,7 @@ public class MyPanel extends JPanel implements KeyListener,Runnable{
                     }
                 }
             }
-
+            hitHero();
             this.repaint();
         }
     }
