@@ -10,39 +10,47 @@ interface Pad {
     void show();
 }
 class ApplePhone implements Phone {
+    @Override
     public void show() {
         System.out.println("iPhone");
     }
 }
 class ApplePad implements Pad {
+    @Override
     public void show() {
         System.out.println("iPad");
     }
 }
 class XiaomiPhone implements Phone {
+    @Override
     public void show() {
         System.out.println("MiPhone");
     }
 }
 class XiaomiPad implements Pad {
+    @Override
     public void show() {
         System.out.println("MiPad");
     }
 }
 
 class AppleFactory implements AbstractFactory {
+    @Override
     public Phone newPhone() {
         return new ApplePhone();
     }
+    @Override
     public Pad newPad() {
         return new ApplePad();
     }
 }
 
 class XiaomiFactory implements AbstractFactory {
+    @Override
     public Phone newPhone() {
         return new XiaomiPhone();
     }
+    @Override
     public Pad newPad() {
         return new XiaomiPad();
     }
